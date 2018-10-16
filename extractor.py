@@ -1,0 +1,70 @@
+import sqlite3
+import sys
+reload(sys)
+sys.setdefaultencoding('UTF8')
+# -*- encoding: utf-8 -*-
+ruta = 'C:/Python27/datos2.txt'
+lista = []
+archivo = open(ruta, 'r')
+lineas = [linea.split(';') for linea in archivo]
+con = sqlite3.connect('C:\Users\Cristian\Downloads\SQLiteStudio\DatosAgricultores')
+con.text_factory = str
+cursor = con.cursor()
+con.text_factory = str
+for linea in lineas:
+    Agricultores = (linea[0],linea[1],linea[2],linea[3],linea[4],linea[5],linea[9],linea[10],linea[12],linea[13])
+    Aguasgrises = (linea[23],linea[0])
+    Superficial = (linea[19],linea[0])
+    Alcantarillado = (linea[26],linea[0])
+    Apr = (linea[18],linea[0])
+    Asesoria = (linea[30],linea[0])
+    Aves = (linea[46],linea[47],linea[48],linea[49],linea[50],linea[51],linea[52],linea[0])
+    Capitalcultural = (linea[27],linea[0])
+    Colmenas = (linea[42],linea[43],linea[44],linea[45],linea[0])
+    Erosion = (linea[16],linea[0])
+    Escolaridad = (linea[11],linea[0])
+    Estanque = (linea[24],linea[25],linea[0])
+    Huertofamiliar = (linea[28],linea[29],linea[0])
+    Habita = (linea[15],linea[0])
+    Inscrita = (linea[22],linea[0])
+    Bobinos = (linea[35],linea[36],linea[37],linea[38],linea[39],linea[40],linea[41],linea[0])
+    Nativo = (linea[17],linea[0])
+    Necesidad =(linea[68],linea[69],linea[0])
+    Rubro = (linea[33],linea[34],linea[0])
+    Sag = (linea[37],linea[0])
+    Sector = (linea[6],linea[0])
+    Segmento = (linea[7],linea[0])
+    Tenencia = (linea[14],linea[0])
+    Turismo = (linea[66],linea[67],linea[0])
+    Vertiente = (linea[21],linea[0])
+    #-----------------------------------------------------------------------------------------------------------------------
+    """ cursor.execute("INSERT INTO Agricultores(Id_agricultor,Rut,Cv,Nombres,Apellidos,Sexo,Proyectos,Edad,Ingresos,Superficie) VALUES(?,?,?,?,?,?,?,?,?,?);",Agricultores)
+    cursor.execute("INSERT INTO Aguasgrises(Nombre_aguasgrises,Id_agricultor) VALUES(?,?);",Aguasgrises)
+    cursor.execute("INSERT INTO Superficial(Nombre_superficial,Id_agricultor) VALUES(?,?);", Superficial)
+    cursor.execute("INSERT INTO Alcantarillado(Nombre_alcantarillado,Id_agricultor) VALUES(?,?);", Alcantarillado)
+    cursor.execute("INSERT INTO Apr(Nombre_apr,Id_agricultor) VALUES(?,?);", Apr)
+    cursor.execute("INSERT INTO Asesoria(Nombre_asesoria,Id_agricultor) VALUES(?,?);", Asesoria)
+    cursor.execute("INSERT INTO Aves(Nombre_aves,Numero_gallinas,Numero_pollos,Numero_Huevosdialargo,Numero_Huevosdiacorto,Preciobandeja,Tipo_venta,Id_agricultor) "
+                   "VALUES(?,?,?,?,?,?,?,?);", Aves)
+    cursor.execute("INSERT INTO Capitalcultural(Nombre_Capitalcultural,Id_agricultor) VALUES(?,?);", Capitalcultural)
+    cursor.execute("INSERT INTO Colmenas(Cantidad,Kg_colmena,Perdidas,Tipo_Venta,Id_agricultor) VALUES(?,?,?,?,?);", Colmenas)
+    cursor.execute("INSERT INTO Erosion(Nombre_erocion,Id_agricultor) VALUES(?,?);", Erosion)
+    cursor.execute("INSERT INTO Escolaridad(Nombre_escolaridad,Id_agricultor) VALUES(?,?);", Escolaridad)
+    cursor.execute("INSERT INTO Estanque(Nombre_estanque,Tipo_concreto,Id_agricultor) VALUES(?,?,?);", Estanque)
+    cursor.execute("INSERT INTO Huertofamiliar(Nombre_huertofamiliar,Nombre_guardarsemillas,Id_agricultor) VALUES(?,?,?);", Huertofamiliar)
+    cursor.execute("INSERT INTO Habita(Nombre_habita,Id_agricultor) VALUES(?,?);", Habita)
+    cursor.execute("INSERT INTO Inscrita(Nombre_inscrita,Id_agricultor) VALUES(?,?);", Inscrita)
+    cursor.execute("INSERT INTO Bobinos(Cantidad_bobinos,Cantidad_diio,Sag,Fardosalanio,Lugar,Praderas,Ventas,Id_agricultor) VALUES(?,?,?,?,?,?,?,?);", Bobinos)
+    cursor.execute("INSERT INTO Nativo(Nombre_nativo,Id_agricultor) VALUES(?,?);", Nativo)
+    cursor.execute("INSERT INTO Necesidad(Tipo_necesidad,Tipo_amenaza,Id_agricultor) VALUES(?,?,?);", Necesidad)
+    cursor.execute("INSERT INTO Rubro(Nombre_rubro,Tipo,Id_agricultor) VALUES(?,?,?);", Rubro)
+    cursor.execute("INSERT INTO Sag(Nombre_sag,Id_agricultor) VALUES(?,?);", Sag)
+    cursor.execute("INSERT INTO Sector(Nombre_sector,Id_agricultor) VALUES(?,?);", Sector)
+    cursor.execute("INSERT INTO Segmento(Nombre_segmento,Id_agricultor) VALUES(?,?);", Segmento)
+    cursor.execute("INSERT INTO Tenencia(Nombre_tenencia,Id_agricultor) VALUES(?,?);", Tenencia)
+    cursor.execute("INSERT INTO Turismo(Nombre_turismo,Tipo_turismo,Id_agricultor) VALUES(?,?,?);", Turismo)
+    cursor.execute("INSERT INTO Vertiente(Nombre_vertiente,Id_agricultor) VALUES(?,?);", Vertiente)"""
+
+print (Agricultores)
+con.commit()
+con.close()
