@@ -1,0 +1,13 @@
+<h2>Lista Agricultores</h2>
+
+<ul>
+	
+		{% for agricult in agro %}
+		<li>{{ agricult.nombres }}</li>
+		{% endfor %}
+		{% for agua in aguas %}
+		<li>{{ agua.nombre_aguasgrises }}</li>
+		
+		{% endfor %}
+
+</ul>
